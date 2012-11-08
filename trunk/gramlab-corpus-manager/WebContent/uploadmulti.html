@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML5 File API</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div id="main">
+		<h1>Upload Your Images</h1>
+		<form id="uploadform" method="post" enctype="multipart/form-data"  action="Commonsfileuploadservlet">
+    		<input type="file" name="images" id="images" class="multi"  accept="pdf|txt|odt|doc|docx|rtf|zip|ppt"/>
+    		<button class="upload" type="submit" id="btn">Upload Files!</button>
+    	</form>
+
+  	<div id="response"></div>
+		<ul id="image-list">
+		</ul>
+	</div>
+	
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src='js/jquery.form.js' type="text/javascript" language="javascript"></script>
+  <script src='js/jquery.MetaData.js' type="text/javascript" language="javascript"></script>
+  <script src='js/jquery.MultiFile.js' type="text/javascript" language="javascript"></script>
+  <script src='js/jquery.blockUI.js' type="text/javascript" language="javascript"></script>
+  <script>
+	$(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#uploadform').ajaxForm(function() { 
+                $('input:file').MultiFile('reset'); 
+            }); 
+        }); 
+  </script>
+</body>
+</html>
