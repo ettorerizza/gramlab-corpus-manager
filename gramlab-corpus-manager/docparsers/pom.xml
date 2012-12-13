@@ -1,0 +1,160 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gramlab.corpus</groupId>
+    <artifactId>gramlab-docparsers</artifactId>
+    <name>Gramlab document parsers</name>
+    <packaging>jar</packaging>
+    <description>Gramlab document parsers library</description>
+    <version>1.0.3-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.gramlab.corpus</groupId>
+        <artifactId>gramlab-corpus-manager-parent</artifactId>
+        <version>1.2.1-SNAPSHOT</version>
+    </parent>
+
+    <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
+    <organization>
+        <name>Gramlab</name>
+        <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GNU Library or "Lesser" General Public License version 3.0 (LGPL-3.0)</name>
+            <url>http://www.opensource.org/licenses/GPL-3.0</url>
+        </license>
+    </licenses>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.4</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- For command line arguments -->
+        <dependency>
+            <groupId>args4j</groupId>
+            <artifactId>args4j</artifactId>
+            <version>2.0.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/deps.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>generate-distribution</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>org.gramlab.docparsers.cli.EntryPoint</mainClass>
+							<packageName>org.gramlab.docparsers.cli</packageName>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<manifestSections>
+							<manifestSection>
+								<name>org/gramlab/docparsers/cli</name>
+								<manifestEntries>
+									<Specification-Vendor>Gramlab</Specification-Vendor>
+									<Implementation-Vendor>Gramlab</Implementation-Vendor>
+									<Implementation-Title>Gramlab docparsers Command Line Interface</Implementation-Title>
+									<Implementation-Version>${project.version}</Implementation-Version>
+								</manifestEntries>
+							</manifestSection>
+						</manifestSections>
+					</archive>
+				</configuration>
+			</plugin>
+            <plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>sun.jdk</groupId>
+						<artifactId>tools</artifactId>
+						<version>1.6.0</version>
+						<scope>system</scope>
+						<systemPath>${java.home}/../lib/tools.jar</systemPath>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>Update launchers</id>
+						<!-- generate-resources phase is preceding compile phase -->
+						<phase>generate-resources</phase>
+						<configuration>
+							<tasks verbose="true">
+								<property name="clientSiteDir" location="${basedir}/src/main/site"/>
+								<property name="targetDir" location="${basedir}/target"/>
+								<property name="clientBatLauncher" value="gramlab-docparsers.bat"/>
+								<property name="clientShLauncher" value="gramlab-docparsers.sh"/>
+
+								<!-- Client Assembly -->
+								<copy file="${clientSiteDir}/${clientBatLauncher}" todir="${targetDir}"/>
+								<copy file="${clientSiteDir}/${clientShLauncher}" todir="${targetDir}"/>
+
+								<replace file="${targetDir}/${clientBatLauncher}" token="%VERSION%" value="${project.version}"/>
+								<replace file="${targetDir}/${clientShLauncher}" token="%VERSION%" value="${project.version}"/>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+        </plugins>
+    </build>
+
+</project>

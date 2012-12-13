@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns='http://www.tei-c.org/ns/1.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.tei-c.org/ns/1.0 http://www.tei-c.org/release/xml/tei/custom/schema/xsd/teilite.xsd'><teiHeader><fileDesc><titleStmt><title></title></titleStmt><editionStmt><p></p></editionStmt><publicationStmt><publisher></publisher><date>2009-09-25T16:40:44Z</date></publicationStmt><sourceDesc><p>DescriptionVersionBasique.pdf</p></sourceDesc></fileDesc></teiHeader><text><front></front><body><p>A. Remarques générales sur les textes associés aux icônes et aux catégories : 
+• Le texte des pop-up est généralement la phrase où l'on a trouvé l'indice qui a permis de 
+calculer la catégorie. Ce n'est pas  la concaténation de tous les hints rencontrés. 
+• cf. ci-dessous pour les détails selon la catégorie.
+• Le texte des hovers sur les icônes est l'info (tel ou mail ou domaine de l'url) elle-même, pas 
+la phrase complète. 
+• Ce qui vaut pour les hover et les pop-up vaut aussi pour les highlights dans le corps du 
+message. . 
+B. Calcul des iCal (bouton « Add to iCal/gCalendar »)
+Titre : le sujet du message 
+Date : normalement choisie par le serveur. [que mettre sinon ? ]
+Heure : idem, toute la journée par défaut ? 
+C. Calcul des vCard (bouton « add to Adressbook » dans le corps du mail)
+→ repoussé à la prochaine version ? 
+D. Contenu de la pop-up – A valider
+Kwaga a reçu une Invitation &#60;date du 
+mail : heure&#62; de Untel
+Date proposée : Ajouter à iCal
+&#60;date de Ajouter à mon agenda 
+l'événement&#62; Google
+&#60;texte de l'invitation&#62;
+Autres événements
+Web :                    Mél :               ….
+Si on clique sur un rectangle, le haut est mis en valeur, si on clique sur une icône la partie grise est 
+plus visible.
+E. Mode liste de mails vs. Mode Conversation 
+En mode lecture de mail, les Rectangles et les icônes sont identiques à la vue en mode liste de mail :  
+on doit voir l'icône et/ou le rectangle sur le mail qui a généré le tag. 
+Que faire si le tag a changé au cours de la conversation ? 
+2 solutions : 
+– ne montrer que le dernier tag
+– montrer l'historique avec le risque de sembler incohérent.
+Les éléments ayant permis de générer les catégories ou data sont highlightés individuellement. 
+Les éléments correspondant à des catégories non affichées ne doivent pas être  highlightés.
+F. Les rectangles
+Catégories Définition (sujet principal du mail) Interprétation</p>
+
+<p>Credentials / Les mails qui indiquent (ou vous rappellent) vos login et mots de Rectangle « Credential »/ 
+Identifiants passe. « Identifiants »
+La présence d'un password est définitoire de la catégorie (mais ce 
+n'est pas parce qu'il y a un password que la catégorie est Credential 
+nécessairement. + icône 'cadenas'
+Hover Hint : la valeur 
+Bonjour Gaelle, login/mot de passe
+Nous sommes heureux de vous compter parmi nos 8 
+millions de membres PhotoBox. « gaelle.recource@free.fr/XXXX11 »
+Votre identifiant est :  Adresse e-mail : Texte pop-up : La phrase 
+gaelle.recource@free.fr  Mot de passe : XXXX11 complète avec les identifiants : 
+« Votre identifiant est :  
+Vous pouvez dès à présent  transférer et stocker Adresse e-mail : 
+gratuitement vos photos sur notre site, les organiser sous gaelle.recource@free.fr  
+forme d'albums, les partager, obtenir des tirages de Mot de passe : XXXX11 »
+qualité professionnelle et commander des cadeaux 
+photo.
+Confirmation Les mails invitant à cliquer sur un lien pour confirmer une Rectangle « Confirmation 
+Email / A inscription sur une liste, un site, ... Email »/
+confirmer Pour confirmer cette adresse de messagerie, sélectionnez et copiez  « A confirmer »
+le lien suivant. Ouvrez un navigateur et collez le lien dans la barre  +
+d'adresses. Appuyez sur la touche Entrée ou Retour de votre clavier  icône WebLink
+et suivez les instructions qui s'affichent. avec hover =« countservices/msm.com »
+https://accountservices.msn.com/EmailPage.srf?
+emailid=df0515218564785d&#38;ed=B64I91h Texte Pop-up =
+%2BV3Z6wGHboyIdn8A4TR4B178PyR6ApUF2ooZD8p3fhhMa « Pour confirmer cette  
+Q7nmDqRdtLTni2sALv0%3D&#38;lc=1036&#38;urlnum=0 adresse de messagerie,  sélectionnez et copiez le lien  
+suivant. « 
+Invitations Les invitations à participer à un événement collectif (NB : ce qui Rectangle « Invitation »
+n'est pas une demande personnelle de RV). Il y a souvent une 
+demande de confirmer votre présence. Texte Pop-up = la phrase où 
+Exemples : repas, anniversaire, fête, petit-déjeuner, réunion, ... se trouve le hint. Ici : 
+Dans le cadre d’un cycle de conférences intitulé « Comment réussir « Dans le cadre d’un cycle de 
+le développement de sa start-up », nous avons le plaisir de vous conférences intitulé « Comment 
+inviter à notre prochain événement, qui aura lieu le mercredi 14 réussir le développement de sa 
+octobre, sous la forme d’un petit-déjeuner de travail (8h00-10h00), start-up », nous avons le plaisir de vous inviter à notre prochain 
+au Cabinet Kahn &#38; Associés (51 rue Dumont d’Urville, 75116 événement, qui aura lieu le 
+Paris). mercredi 14 octobre, sous la 
+ forme d’un petit-déjeuner de 
+Les trois présentations inscrites au programme de cette réunion travail (8h00-10h00), au 
+porteront respectivement sur : Cabinet Kahn &#38; Associés (51 
+-          La levée de fonds propres rue Dumont d’Urville, 75116 
+-          La collecte d’aides publiques par effet de levier Paris). »
+(OSEO, Programme Eurostars)
+-          Les mécanismes juridiques à maîtriser (propriété Date pop-up = 
+intellectuelle, pactes d’actionnaires) « 14 octobre 8h00-10h00 »
+ (ou rien sinon, mais ce n'est 
+Le nombre de participants à cet événement étant limité, nous vous pas normal parce que le 
+remercions de bien vouloir vous inscrire par retour de mail si vous calcul de la catégorie devrait 
+souhaitez y participer. imposer un date )
+ 
+En attendant d’avoir le plaisir de vous accueillir, nous nous tenons à +iCal (voir description en 
+votre disposition pour tout renseignement complémentaire. haut)
+ </p>
+
+<p>Cordialement,
+ 
+Frédérique GEORGES-PICHOT
+Responsable Communication Adelit
+06 43 65 62 78
+www.adelit.com
+Event/ Idem « Invitation » mais public (conférences, cocktails, ...) Rectangle «Event»/
+Evénement «Evenement »
+Bonjour, Texte Pop-up = la phrase où 
+Dans deux mois, jour pour jour, la Région Ile-de-France accueillera se trouve le hint. Ici : 
+Futur en Seine, dix jours de fête et de prospective numérique à la « Vous trouverez ci-joint la 
+rencontre du public. Henri Verdier, président de Cap Digital vous lettre d'invitation à participer 
+invite à rejoindre, à enrichir et même à détourner cet événement qui à Futur en Seine et une 
+est avant tout au service des communautés de Cap Digital. Vous rapide présentation de 
+trouverez ci-joint la lettre d'invitation à participer à Futur en Seine l'événement. »
+et une rapide présentation de l'événement. Date pop-up = 
+Contacts Futur en Seine : « -- »( rien parce qu'on ne sait pas 
+la calculer ici)
+Communication &#38; Partenariats : Dominique Bournazac de Lastours 
+- dominique.delastours@capdigital.com - 01 40 41 11 88. + iCal (cf description iCal)
+Programme : Ewen Chardronnet – 
+ewen.chardronnet@capdigital.com  - 01 40 41 74 91.
+Bien cordialement,
+Gaëlle COURAUD, Communication Project Officer
+Cap Digital, Business Cluster For Digital Content and Services
+gaelle.couraud@capdigital.com | Tel. +33 (0)1 40 41 11 84
+74 rue du Faubourg Saint-Antoine - 75012 Paris - France
+Web site: www.capdigital.com | Event guide: www.digitallyours.fr
+Meeting / Les demandes de rendez-vous Rectangle «Meeting»/
+Rendez-vous Critère pour distinguer des invitations : on vous demande votre avis, « Rendez-vous »
+vos disponibilités ...
+Hi Phil, Texte Pop-up = la phrase où se trouve le hint. Ici : 
+Would it be possible for you to be in London next Friday morning « Would it be possible for 
+for the SeedCamp meeting?  It would be great to meet you in you to be in London next 
+person, and have you participate. What is your availability? Friday morning for the SeedCamp meeting? »
+Gaelle Date pop-up = valeur 
+absolue de « next Friday » 
+au moment de l'analyse
++ iCal (cf description iCal)
+ContactInfo Mail informant d'un changement de coordonnées ou bien Rectangle « ContactInfo»/
+/Coordonnées transmettant les coord de qqn « Coordonnées »
+Gaëlle, voici les coordonnées d'Anastasia : +icône d'information 
+Anastasia Yannacopoulou (contact ou autre selon le 
+anastasiay@gmail.com  contenu)
++30 2810360455  Domicile
+Mina Dimaki 20 Pour les signatures : plus 
+71409 Iraklio Crete tard (parce que c'est pas 
+Grèce facile et pas testé]: [+vCard avec le nom et les infos]
+Sylvain Texte pop-up = la phrase où 
+a été trouvé l'indice.</p>
+
+<p>ou bien « Jour - pourriez-vous 
+Jour - pourriez-vous dorénavant utiliser cette adresse mel pour tout dorénavant utiliser cette 
+ce qui concerne kwaga ? Merci !! adresse mel pour tout ce qui concerne kwaga »
+FYI/Pour info Repérer les indices que ce mail est « pour information » Rectangle « FYI »/
+FYI : « Pour info »Texte pop-up = phrase 
+http://www.arobase.org/blog/ contenant l'indice+
+Ciao, icône weblink
+Gaelle Texte hover = 
+-------- « www.arobase.org »
+Tél. 03 86 86 24 08 et pop-up = 
+Mail : gaelle.anne@gmail.com « http://www.arobase.org/blog/ » 
+(NB le weblink n'est pas 
+obligatoire, juste fréquent)
+Newsletter Repérer les mentions de liste, les invitations à se désinscrire. (tout Rectangle «Newsletter»
+ce qui indique qu'on est dans un mail envoyé via une mailing list. Texte pop-up = sujet du mail
+Objet : New Article Posted to OnStartups.com (pas la phrase détectée par 
+New Article: 7 Things Your Startup SHOULD Copy From 37signals l'analyse parce c'est « to 
+A new article has been posted on our blog by Dharmesh Shah: unsuscribe » ...)
+7 Things Your Startup SHOULD Copy From 37signals
+Powered by HubSpot Internet Marketing. If you would like to 
+unsubscribe from new article notifications, click here.
+G. Les Icônes
+Data Interprétation Icônes Hover et highlight
++phone Ces éléments sont des 'datas' pas des catégories : ils 0986882008 
+indiquent qu'une info a été trouvée dans le corps [ à améliorer avec une 
+du mail (pas dans la signature, pas dans un footer : normalisation]
++url dans ce cas, ce sont des bugs d'analyse ;-) ) Nom de domaine :
+Ils sont 'accrochés' à une catégorie : si le mail n'a pas www.kwaga.com
++email de catégorie, une catégorie Info est inventée, elle ne toto@kwaga.com
+doit pas être affichée. 
++skype Ces datas sont représentés par des icônes, placées ?? [icône à choisir] grecource
++password immédiatement avant le sujet. monmotdepasse
+[n'apparait jamais]
+S'il y a plusieurs datas, l'icône spécifique est 
+remplacée par une icône générique de contact. [C'est  [apparaît souvent pour Suite de data séparées Plusieurs une mauvaise solution, surtout pour les urls et les une simple signature, par des espaces ?? datas mots de passe mais je n'en vois pas d'autre c'est une erreur je 
+Peut-etre devrait-on avoir un ordre et choisir la  crois]
+première :
+passwd &#62;&#62; phone &#62;&#62; mail &#62;&#62; url]
+NB : Certains de ces éléments sont souvent associés à 
+une catégorie donnée (FYI et url par exemple), mais </p>
+
+<p>ils peuvent en fait intervenir avec n'importe quelle 
+catégorie. Ceci est dû au fait que les mails parlent de 
+plusieurs choses. 
+Une data mise dans le texte doit faire apparaître une icône, pas celle de la signature. 
+Pour tester chacune de ces icônes seules, voici un canevas de test : 
+Il était une fois une &#60;+data&#62; . 
+Cordialement, 
+Arthur
+Tel: 01 45 67 78 89
+Mél : arthur@kwaga.com
+Skype : tototata
+ 
+H. Les Catégories secondaires
+++urgence
+++deadline Affichage dans la troisième colonne.
+++annulation ??? Je ne sais pas 
+Tableau récapitulatif de ce qui est visible pour la Basique
+Catégories Data Catégories secondaires
+Credentials / Identifiants Phone Urgence
+ConfirmationMail / A confirmer Url Annulation
+Invitations Email
+Evénement Skype
+Meeting / Rendez-vous Mot de passe
+Contact/Coordonnées
+FYI/Pour info
+Newsletter</p>
+
+</body><back></back></text></TEI>
