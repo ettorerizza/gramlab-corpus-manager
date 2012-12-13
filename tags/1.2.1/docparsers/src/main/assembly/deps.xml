@@ -1,0 +1,39 @@
+<assembly>
+	<id>distribution</id>
+	<formats>
+		<format>tar.gz</format>
+		<format>zip</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory>/lib</outputDirectory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+			<excludes>
+				<exclude>*-javadoc.jar</exclude>
+				<exclude>*-sources.jar</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<!-- these files are previously updated by an Ant task described in pom file -->
+				<include>gramlab-docparsers.bat</include>
+				<include>gramlab-docparsers.sh</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>/lib</outputDirectory>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+			<excludes>
+				<exclude>org.gramlab.docparsers:gramlab-docparsers</exclude>
+			</excludes>
+		</dependencySet>
+	</dependencySets>
+</assembly>

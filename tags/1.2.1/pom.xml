@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.gramlab.corpus</groupId>
+    <artifactId>gramlab-corpus-manager-parent</artifactId>
+    <name>Gramlab corpus manager parent</name>
+    <packaging>pom</packaging>
+    <description>Gramlab corpus manager parent pom</description>
+    <version>1.2.1</version>
+
+
+    <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
+    <organization>
+        <name>Gramlab</name>
+        <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GNU Library or "Lesser" General Public License version 3.0 (LGPL-3.0)</name>
+            <url>http://www.opensource.org/licenses/GPL-3.0</url>
+        </license>
+    </licenses>
+
+    <modules>
+        <module>docparsers</module>
+        <module>glabcorpus-manager</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>maven-central</id>
+            <name>Maven central Repository</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
