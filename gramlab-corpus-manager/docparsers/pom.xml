@@ -6,12 +6,12 @@
     <name>Gramlab document parsers</name>
     <packaging>jar</packaging>
     <description>Gramlab document parsers library</description>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
 
     <parent>
         <groupId>org.gramlab.corpus</groupId>
         <artifactId>gramlab-corpus-manager-parent</artifactId>
-        <version>1.2.1-SNAPSHOT</version>
+        <version>1.2.1</version>
     </parent>
 
     <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
