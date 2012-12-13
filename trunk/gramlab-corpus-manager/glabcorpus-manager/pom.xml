@@ -6,12 +6,12 @@
     <name>Gramlab corpus manager</name>
     <packaging>war</packaging>
     <description>Gramlab corpus manager web application</description>
-    <version>1.2.1</version>
+    <version>1.2.2-SNAPSHOT</version>
 
     <parent>
         <groupId>org.gramlab.corpus</groupId>
         <artifactId>gramlab-corpus-manager-parent</artifactId>
-        <version>1.2.1-SNAPSHOT</version>
+        <version>1.2.2-SNAPSHOT</version>
     </parent>
 
     <url>https://sites.google.com/a/kwaga.com/gramlab/</url>
@@ -103,6 +103,7 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
+        <!-- DO NOT FORGET TO UPDATE THIS VERSION IF YOU PERFORM ANY CHANGE IN DOCPARSERS -->
         <dependency>
             <groupId>org.gramlab.corpus</groupId>
             <artifactId>gramlab-docparsers</artifactId>
