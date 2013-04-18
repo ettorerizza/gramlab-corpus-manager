@@ -4,8 +4,8 @@
 } 
 
 body {
-  background: #fff url(../images/header.gif) repeat-x;
-  color: #333;
+  background: #fff;
+  color: rgb(86,85,85);
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 18px;
@@ -64,12 +64,14 @@ a:hover {
 /* header */
 
 #header {
+  background: #779153 url(../img/hd-bg.png) top left repeat-x;
   height: 90px;
 }
 #header h1 {
   padding: 20px 0 5px 10px;
-  font-size: 20px;
-  letter-spacing: -2px;
+  color: #c2e395;
+  font: bold 2.4em "Trebuchet MS", arial, sans-sherif;
+  letter-spacing: .1em;
 }
 #header h2 {
   padding-left: 10px;
@@ -90,9 +92,8 @@ a:hover {
 }
 .right h2 {
   padding-top:2px;
-  color: #B4241B;
-  font-size: 20px;
-  font-weight: 100;
+  color: #779153;
+  font: bold 1.8em "Trebuchet MS", arial, sans-sherif;
   letter-spacing: -2px;
 }
 #result a {
@@ -129,7 +130,7 @@ a:hover {
 .left h2 {
   clear: left;
   padding-top: 20px;
-  color: #333;
+  color: rgb(5, 105, 1);
   font-size: 13px;
 }
 #search input,#search {
@@ -158,37 +159,37 @@ a:hover {
 /* tagcloud */
 
 a.tagcloud_size_0 {
-font-size: 80%;
+font-size: 110%;
 }
 a.tagcloud_size_1 {
-font-size: 90%;
+font-size: 110%;
 }
 a.tagcloud_size_2 {
-font-size: 100%;
+font-size: 110%;
 }Rst
 a.tagcloud_size_3 {
 font-size: 110%;
 }
 a.tagcloud_size_4 {
-font-size: 120%;
+font-size: 110%;
 }
 a.tagcloud_size_5 {
-font-size: 130%;
+font-size: 110%;
 }
 a.tagcloud_size_6 {
-font-size: 140%;
+font-size: 110%;
 }
 a.tagcloud_size_7 {
-font-size: 150%
+font-size: 110%
 }
 a.tagcloud_size_8 {
-font-size: 160%;
+font-size: 110%;
 }
 a.tagcloud_size_9 {
-font-size: 170%;
+font-size: 110%;
 }
 a.tagcloud_size_10 {
-font-size: 180%;
+font-size: 110%;
 }
 .no_view{
 	display:none;
@@ -203,7 +204,7 @@ font-size: 180%;
 	border-width:1px;
 	border-color:#175973;
 	border-style: solid;
-	background-color:#FED995;
+	background-color:#c2e395;
 	position: relative;
 	min-height:30px;
 }
@@ -345,4 +346,22 @@ font-size: 180%;
     outline: 0 none;
     vertical-align: text-bottom;
     width: 11px;
+}
+
+
+#btn_url {
+	display: block;
+	width: 105px;
+	padding: 7px 0;
+	text-align: center;
+	background: rgb(5, 105, 1);
+	border-bottom: 1px solid #ddd;
+	color: #fff;
+}
+#btn_url:HOVER {
+	background:#779153;
+}
+
+#url input{
+	width: 90%;
 }

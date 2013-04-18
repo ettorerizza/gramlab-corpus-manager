@@ -16,7 +16,7 @@ import org.apache.solr.util.SimplePostTool;
 public class solrGateway implements Gateway{
 	private static final Logger log = Logger.getLogger(solrGateway.class);
 	
-	private URL serverUrl;
+	private String serverUrl;
 	private String solr_home;
 	private SimplePostTool spt;
 	
@@ -25,7 +25,7 @@ public class solrGateway implements Gateway{
 	}*/
 	
 	public solrGateway(String solr_server,String solr_home) throws MalformedURLException{
-		serverUrl = new URL(solr_server);
+		serverUrl = solr_server;
 		this.solr_home= solr_home;
 		System.out.println("solt url "+serverUrl);
 		spt = new SimplePostTool(new URL(serverUrl+"/update"));
@@ -45,7 +45,7 @@ public class solrGateway implements Gateway{
   
   public void deleteEntries(List<String> ids){
 	  try{
-		  SolrServer server = new CommonsHttpSolrServer( serverUrl );
+		  SolrServer server = new CommonsHttpSolrServer(serverUrl);
 		  for(String id:ids){
 			  server.deleteById(id);
 		  }
@@ -57,7 +57,7 @@ public class solrGateway implements Gateway{
   
   public void deleteEntry(String id){
 	  try{
-		  SolrServer server = new CommonsHttpSolrServer( serverUrl );
+		  SolrServer server = new CommonsHttpSolrServer(serverUrl);
 		  server.deleteById(id);
 		  server.commit();
 	  }catch(Exception e){
