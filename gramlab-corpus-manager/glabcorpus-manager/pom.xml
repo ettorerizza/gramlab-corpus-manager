@@ -6,7 +6,7 @@
     <name>Gramlab corpus manager</name>
     <packaging>war</packaging>
     <description>Gramlab corpus manager web application</description>
-    <version>1.2.2-SNAPSHOT</version>
+    <version>1.2.2</version>
 
     <parent>
         <groupId>org.gramlab.corpus</groupId>
@@ -81,6 +81,7 @@
             <artifactId>solr-solrj</artifactId>
             <version>3.3.0</version>
         </dependency>
+        
         <dependency>
             <groupId>com.drewnoakes</groupId>
             <artifactId>metadata-extractor</artifactId>
@@ -105,10 +106,21 @@
         </dependency>
         <!-- DO NOT FORGET TO UPDATE THIS VERSION IF YOU PERFORM ANY CHANGE IN DOCPARSERS -->
         <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
             <groupId>org.gramlab.corpus</groupId>
             <artifactId>gramlab-docparsers</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4-SNAPSHOT</version>
         </dependency>
+       
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

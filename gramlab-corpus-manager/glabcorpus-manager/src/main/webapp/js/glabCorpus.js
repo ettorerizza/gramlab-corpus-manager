@@ -190,15 +190,44 @@ $(function () {
 		field: 'text'
 	}));
 	
+		
 	Manager.addWidget(new AjaxSolr.CurrentSearchWidget({
 		id: 'currentsearch',
 		target: '#selection'
 	}));
-
 	
+	Manager.addWidget(new AjaxSolr.CalendarWidget({
+		  id: 'calendar',
+		  target: '#calendar',
+		  field: 'DATE_COLLECT'
+		}));
+	
+	var fields = [ 'LANGUAGE', 'PUBLISHER', 'AUTHOR', 'CONTENT_TYPE' ];
+    for (var i = 0, l = fields.length; i < l; i++) {
+      Manager.addWidget(new AjaxSolr.TagcloudWidget({
+        id: fields[i],
+        target: '#' + fields[i],
+        field: fields[i]
+      }));
+    }
+    
     Manager.init();
     Manager.store.addByValue('q', '*:*');
 	Manager.store.addByValue('rows', '50');
+	var params = {
+			facet: true,
+			'facet.field': [ 'LANGUAGE', 'PUBLISHER', 'AUTHOR', 'CONTENT_TYPE'],
+			'facet.limit': 20,
+			'facet.mincount': 1,
+			'json.nl': 'map',
+			'facet.date': 'DATE_COLLECT',
+			'facet.date.start': '2013-04-01T00:00:00.000Z/DAY',
+			'facet.date.end': '2030-12-31T00:00:00.000Z/DAY+1DAY',
+			'facet.date.gap': '+1DAY',
+	};
+		    for (var name in params) {
+		      Manager.store.addByValue(name, params[name]);
+		    }
     Manager.doRequest();
   });
 
