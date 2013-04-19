@@ -175,8 +175,6 @@ public class UrlUploadServlet extends HttpServlet {
 			 */
 			FileUtils.deleteDirectory(new File(nutchHome + crawl_directory));
 		}
-		response.sendRedirect("index.html");
-
 	}
 
 }

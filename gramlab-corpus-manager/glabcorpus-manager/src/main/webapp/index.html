@@ -107,18 +107,30 @@
 								$('#action' + this.id).remove();
 							} else {
 								$('#' + this.id).hide();
-								$('#action' + this.id).hide();
-								$('#br' + this.id).hide();
-								$('#action' + this.id).hide();
+								$('#action' + this.id).remove();
+								$('#br' + this.id).remove();
 								$('#url')
 										.append(
 												'<br id="br' + this.id+ '"/><span>'
 														+ value
-														+ '</span><img src="img/loading.gif" />');
+														+ '</span><img class="url-loading" src="img/loading.gif" />');
 							}
 						});
-
-		$('#url-upload').submit();
+		var dataString = $('#url :input');
+		$.ajax({
+		    type: "POST",
+		    url: "Urluploadservlet",
+		    data: dataString,
+		    success: function(data) {
+		        Manager.doRequest();
+		    	$('.url-loading').each(function(){
+		    		$(this).attr("src","img/ok.png");		
+		    	});
+		    	$('#url :input').each(function(){
+		    		$(this).remove();
+		    	});    
+		    }
+		});
 	}
 
 	// in your app create uploader as soon as the DOM is ready
