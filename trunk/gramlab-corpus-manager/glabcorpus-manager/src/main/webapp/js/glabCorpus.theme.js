@@ -20,7 +20,7 @@ AjaxSolr.theme.prototype.result = function (doc, snippet) {
    if(doc.CONTENT_TYPE=="application/zip"){
 	 output +=  '<span class="picto"><img src="img/picto/zip.gif" alt="zip" /></span>';
   }
-  if(doc.CONTENT_TYPE=="text/html" | doc.CONTENT_TYPE=="text/html; charset=UTF-8" | doc.CONTENT_TYPE=="text/html; charset=utf-8")
+  if(doc.CONTENT_TYPE=="text/html; charset=iso-8859-1" | doc.CONTENT_TYPE=="text/html" | doc.CONTENT_TYPE=="text/html; charset=UTF-8" | doc.CONTENT_TYPE=="text/html; charset=utf-8")
   {
 		 output +=  '<span class="picto"><img src="img/picto/application-xhtml+xml.png" alt="html" /></span>';
 	}
