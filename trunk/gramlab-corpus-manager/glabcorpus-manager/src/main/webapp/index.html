@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>AJAX Solr</title>
+<title>GramLab Corpus Manager</title>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/common.css"
 	media="screen" />
@@ -122,13 +122,13 @@
 		    url: "Urluploadservlet",
 		    data: dataString,
 		    success: function(data) {
-		        Manager.doRequest();
 		    	$('.url-loading').each(function(){
 		    		$(this).attr("src","img/ok.png");		
 		    	});
 		    	$('#url :input').each(function(){
 		    		$(this).remove();
-		    	});    
+		    	});
+		    	Manager.doRequest();
 		    }
 		});
 	}
@@ -217,16 +217,13 @@
 			<!-- ADD NUTCH CRAWL -->
 			<h2>Crawl websites</h2>
 			<div>
-
-				<form id="url-upload" method="post" action="Urluploadservlet">
-					<div id="add-url">
-						<span> Add url <img id="add-url-img" src="img/textfield_add.png" /></span>
-					</div>
-					<div>
-					<div id="url" class="url"></div>
-					<button type="button" id="btn_url" onclick="uploadUrl()">Crawl Urls</button>
-					</div>
-				</form>
+				<div id="add-url">
+					<span> Add url <img id="add-url-img" src="img/textfield_add.png" /></span>
+				</div>
+				<div>
+				<div id="url" class="url"></div>
+				<button type="button" id="btn_url" onclick="uploadUrl()">Crawl Urls</button>
+				</div>
 			</div>
 		</div>
 	</div>
