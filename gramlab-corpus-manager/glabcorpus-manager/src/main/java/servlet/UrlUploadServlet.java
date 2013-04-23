@@ -109,7 +109,16 @@ public class UrlUploadServlet extends HttpServlet {
 		 * Crawl website urls
 		 */
 		if (!url_to_crawl.isEmpty()) {
-			String urls_filePath = nutchHome + "urls/seed" + System.nanoTime() + ".txt";
+			String urls_filePath;
+			if(nutchHome.contains("\\")){
+				urls_filePath = nutchHome + "urls\\seed" + System.nanoTime() + ".txt";
+			}else{
+				urls_filePath = nutchHome + "urls/seed" + System.nanoTime() + ".txt";
+			}
+			File file = new File(urls_filePath);
+			if(!file.exists()){
+				file.createNewFile();
+			}
 			PrintWriter url_file = new PrintWriter(new FileWriter(urls_filePath));
 			for (String s : url_to_crawl) {
 				url_file.println(s);
@@ -122,9 +131,17 @@ public class UrlUploadServlet extends HttpServlet {
 			/**
 			 * Create crawl system command
 			 */
-			String[] nutch_crawl = { "bin/nutch", "crawl", urls_filePath, "-dir", crawl_directory, "-depth", "2",
+			String cmd;
+			if(nutchHome.contains("\\")){
+				cmd = "C:\\cygwin\\bin\\bash.exe /cydrive/c/apache-nutch-1.6/bin/nutch";
+
+			}else{
+				cmd = "bin/nutch";
+			}
+			String[] nutch_crawl = { cmd, "crawl", urls_filePath, "-dir", crawl_directory, "-depth", "2",
 					"-topN", "10000" };
 			Runtime runtime = Runtime.getRuntime();
+
 			/**
 			 * Lauch nutch crawl
 			 */
