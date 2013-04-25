@@ -110,10 +110,11 @@ public class UrlUploadServlet extends HttpServlet {
 		 */
 		if (!url_to_crawl.isEmpty()) {
 			String urls_filePath;
+			String urls_file = "seed" + System.nanoTime() + ".txt";
 			if(nutchHome.contains("\\")){
-				urls_filePath = nutchHome + "urls\\seed" + System.nanoTime() + ".txt";
+				urls_filePath = nutchHome + "\\urls\\" + urls_file;
 			}else{
-				urls_filePath = nutchHome + "urls/seed" + System.nanoTime() + ".txt";
+				urls_filePath = nutchHome + "urls/" + urls_file;
 			}
 			File file = new File(urls_filePath);
 			if(!file.exists()){
@@ -128,40 +129,72 @@ public class UrlUploadServlet extends HttpServlet {
 			 * Create a temp crawl directory
 			 */
 			String crawl_directory = "gramlabcrawl" + System.nanoTime();
+			
+			final List<String> urls = new ArrayList<String>();
+			
+			
 			/**
 			 * Create crawl system command
 			 */
-			String cmd;
 			if(nutchHome.contains("\\")){
-				cmd = "C:\\cygwin\\bin\\bash.exe /cydrive/c/apache-nutch-1.6/bin/nutch";
+				String[] nutch_crawl = {"C:\\cygwin\\bin\\bash.exe", "-c", "/cygdrive/c/apache-nutch-1.6/bin/nutch crawl '"+urls_filePath+"' -dir 'C:\\apache-nutch-1.6\\" + crawl_directory+"' -depth 2 -topN 10000"};
+				String javaHome = System.getenv("JAVA_HOME");
+				String[] env ={"PATH=/cygdrive/c/cygwin/bin", "JAVA_HOME="+javaHome};
+				Runtime runtime = Runtime.getRuntime();
+				/**
+				 * Lauch nutch crawl
+				 */
+				log("Launch nutch crawl");
+				Process pcrawl = runtime.exec(nutch_crawl, env);
+				BufferedReader crawlReader = new BufferedReader(new InputStreamReader(pcrawl.getInputStream()));
+				String line = "";
+				try {
+					while ((line = crawlReader.readLine()) != null) {
+						log(line);
+						if (line.contains("fetching")) {
+							String[] lines = line.split(" ");
+							urls.add(lines[1]);
+						}
+					}
+				}catch(Exception e){
+					log("Exception in nutch crawl");
+					e.printStackTrace();
+				}
+				finally {
+					crawlReader.close();
+				}
+				log("Crawl end");
 
 			}else{
-				cmd = "bin/nutch";
-			}
-			String[] nutch_crawl = { cmd, "crawl", urls_filePath, "-dir", crawl_directory, "-depth", "2",
-					"-topN", "10000" };
-			Runtime runtime = Runtime.getRuntime();
+				File file_cmd = new File(nutchHome);
+				String cmd = "bin/nutch";
+				String[] nutch_crawl = { cmd, "crawl", urls_filePath, "-dir", crawl_directory, "-depth", "2",
+						"-topN", "10000" };
+				Runtime runtime = Runtime.getRuntime();
 
-			/**
-			 * Lauch nutch crawl
-			 */
-			log("Launch nutch crawl");
-			Process pcrawl = runtime.exec(nutch_crawl, null, new File(nutchHome));
-			BufferedReader crawlReader = new BufferedReader(new InputStreamReader(pcrawl.getInputStream()));
-			String line = "";
-			final List<String> urls = new ArrayList<String>();
-			try {
-				while ((line = crawlReader.readLine()) != null) {
-					log(line);
-					if (line.contains("fetching")) {
-						String[] lines = line.split(" ");
-						urls.add(lines[1]);
+				/**
+				 * Lauch nutch crawl
+				 */
+				log("Launch nutch crawl");
+				Process pcrawl = runtime.exec(nutch_crawl, null, file_cmd);
+				BufferedReader crawlReader = new BufferedReader(new InputStreamReader(pcrawl.getInputStream()));
+				String line = "";
+				
+				try {
+					while ((line = crawlReader.readLine()) != null) {
+						log(line);
+						if (line.contains("fetching")) {
+							String[] lines = line.split(" ");
+							urls.add(lines[1]);
+						}
 					}
+				} finally {
+					crawlReader.close();
 				}
-			} finally {
-				crawlReader.close();
+				log("Crawl end");
 			}
-			log("Crawl end");
+			
+			
 			/**
 			 * Add crawled urls to Gramlab corpus
 			 */
