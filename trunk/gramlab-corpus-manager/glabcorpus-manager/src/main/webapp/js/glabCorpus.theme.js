@@ -33,7 +33,7 @@ AjaxSolr.theme.prototype.result = function (doc, snippet) {
 		  output += '<span class="picto"><img src="img/flags/fr.png" alt="fr"/></span>';  
 	  }
 	  if(doc.LANGUAGE=="en"){
-		  output += '<span class="picto"><img src="img/flags/en.png" alt="en"/><span>';  
+		  output += '<span class="picto"><img src="img/flags/en.png" alt="en"/></span>';  
 	  }
 	  if(doc.LANGUAGE=="de"){
 		  output += '<span class="picto"><img src="img/flags/de.png" alt="de"/></span>';  
